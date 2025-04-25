@@ -49,7 +49,24 @@ function Header() {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+    // Toggle body scroll when menu is open
+    document.body.style.overflow = !menuOpen ? 'hidden' : 'auto';
+    // Toggle overlay class on header
+    const headerElement = document.querySelector('header');
+    if (headerElement) {
+      headerElement.classList.toggle('overlay-active', !menuOpen);
+    }
   };
+
+  // Close menu when route changes
+  React.useEffect(() => {
+    setMenuOpen(false);
+    document.body.style.overflow = 'auto';
+    const headerElement = document.querySelector('header');
+    if (headerElement) {
+      headerElement.classList.remove('overlay-active');
+    }
+  }, [location.pathname]);
 
   const navItems = [
     { path: '/', label: { en: 'Home', ar: 'الرئيسية' } },

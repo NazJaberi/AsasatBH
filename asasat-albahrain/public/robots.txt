@@ -1,3 +1,11 @@
-# https://www.robotstxt.org/robotstxt.html
+# robots.txt for Asasat Albahrain Construction Company
 User-agent: *
+Allow: /
+
+# Allow all crawlers to access all content
+Sitemap: https://www.asasatalbahrain.com/sitemap.xml
+
+# Prevent access to certain paths if needed
+# Disallow: /admin/
+# Disallow: /private/
 Disallow:
